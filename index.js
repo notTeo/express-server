@@ -4,23 +4,33 @@ const server = express()
 
 const key = "12345"
 
-const users = [
-  {
-    user1: {
-        id: {},
-        name: {},
-        lastName: {},
-        email: {},
-        age: {},
-    }
-    // id
-    // name
-    // lastName
-    // email
-    // age
-    // job
+const users = {
+  
+  user1 : {
+    id: [
+      name = "john", 
+      lastName = 'Doe',
+      age = Math.floor(Math.random() * 99),
+      email =  name + lastName + age + "@email.com"
+    ]
+
+
+  },
+  user2 : {
+      id: [
+        name = "Nick", 
+        lastName = 'Theo',
+        age = Math.floor(Math.random() * 99),
+        email =  name + lastName + age + "@email.com"
+    ]
+
   }
-]
+
+}    
+  
+
+
+
 
 server.use(bodyParser.json())
 
@@ -49,4 +59,7 @@ server.post("/hi", (request, response) => {
 
 server.listen(3000, () => {
   console.log("Server Started")
+  console.log(users);
 })
+
+
