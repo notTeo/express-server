@@ -7,31 +7,32 @@ const port = 3000;
 const users = [
   
   {
-    user1 : {
-      id: Math.floor(Math.random() * 10),
+      id: "1",
       name: "john", 
       lastName: 'Doe',
       age: Math.floor(Math.random() * 99),
-      email:"@email.com" 
+      email: name + lastName + age +"@email.com" 
 
-
-  }},
+  },
   {
-    user2 : {
-      id: Math.floor(Math.random() * 10),
+      id: "2",
       name: "Nick", 
       lastName: 'Theo',
       age: Math.floor(Math.random() * 99),
-      email:"@email.com" 
-
-
-  }},
+      email: name + lastName + age +"@email.com"   
+  },
   
 ]
 
+
+
 server.get("/users", (req, res) => {
   res.send(users);
-})
+});
+
+server.get("/users/:id", (req, res) => {
+  res.send(req.params);
+});
 
 
 /*
