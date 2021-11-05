@@ -1,37 +1,40 @@
 const express = require("express")
 const bodyParser = require('body-parser')
 const server = express()
+const port = 3000;
 
-const key = "12345"
 
-const users = {
+const users = [
   
-  user1 : {
-    id: [
-      name = "john", 
-      lastName = 'Doe',
-      age = Math.floor(Math.random() * 99),
-      email =  name + lastName + age + "@email.com"
-    ]
+  {
+    user1 : {
+      id: "2",
+      name: "john", 
+      lastName: 'Doe',
+      age: Math.floor(Math.random() * 99),
+      email:"@email.com" 
 
 
-  },
-  user2 : {
-      id: [
-        name = "Nick", 
-        lastName = 'Theo',
-        age = Math.floor(Math.random() * 99),
-        email =  name + lastName + age + "@email.com"
-    ]
+  }},
+  {
+    user1 : {
+      id: "2",
+      name: "Nick", 
+      lastName: 'Theo',
+      age: Math.floor(Math.random() * 99),
+      email:"@email.com" 
 
-  }
 
-}    
+  }},
   
+]
+
+server.get("/users", (req, res) => {
+  res.send(users);
+})
 
 
-
-
+/*
 server.use(bodyParser.json())
 
 server.post("/hi", (request, response) => {
@@ -44,7 +47,9 @@ server.post("/hi", (request, response) => {
   console.log({ name })
   console.log({ lastname })
   response.send(`Hi ${name} ${lastname}`)
-})
+})*/
+
+
 
 // TODOS:
 // put this all in a git repo
@@ -56,10 +61,12 @@ server.post("/hi", (request, response) => {
 // PUT /user/:id (finds the user with that id, reads the body, and updates the user)
 // DELETE /user/:id (finds the user with that id, and removes it from the users array)
 
-
+/*
 server.listen(3000, () => {
   console.log("Server Started")
   console.log(users);
-})
+})*/
+
+server.listen(3000, () => console.log("listening on port" + port))
 
 
