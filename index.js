@@ -8,7 +8,7 @@ const users = [
   
   {
     user1 : {
-      id: "2",
+      id: Math.floor(Math.random() * 10),
       name: "john", 
       lastName: 'Doe',
       age: Math.floor(Math.random() * 99),
@@ -17,8 +17,8 @@ const users = [
 
   }},
   {
-    user1 : {
-      id: "2",
+    user2 : {
+      id: Math.floor(Math.random() * 10),
       name: "Nick", 
       lastName: 'Theo',
       age: Math.floor(Math.random() * 99),
