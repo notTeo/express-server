@@ -11,7 +11,7 @@ const users = [
       name: "john", 
       lastName: 'Doe',
       age: Math.floor(Math.random() * 99),
-      email:"@email.com" 
+      email: "000001@email.com" 
 
   },
   {
@@ -19,7 +19,7 @@ const users = [
       name: "Nick", 
       lastName: 'Theo',
       age: Math.floor(Math.random() * 99),
-      email:"@email.com"   
+      email:"000002@email.com"   
   },
   
 ]
