@@ -11,7 +11,7 @@ const users = [
       name: "john", 
       lastName: 'Doe',
       age: Math.floor(Math.random() * 99),
-      email: name + lastName + age +"@email.com" 
+      email:"@email.com" 
 
   },
   {
@@ -19,7 +19,7 @@ const users = [
       name: "Nick", 
       lastName: 'Theo',
       age: Math.floor(Math.random() * 99),
-      email: name + lastName + age +"@email.com"   
+      email:"@email.com"   
   },
   
 ]
@@ -31,8 +31,10 @@ server.get("/users", (req, res) => {
 });
 
 server.get("/users/:id", (req, res) => {
-  res.send(req.params);
-});
+  res.send(users.find((user) =>{
+    return req.params.id === user.id;
+  }))
+})
 
 
 /*
