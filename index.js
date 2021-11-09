@@ -1,41 +1,32 @@
-const express = require("express")
-const bodyParser = require('body-parser')
-const server = express()
+const express = require("express");
+const bodyParser = require("body-parser");
+const e = require("express");
+const usersRouter = require("./routers/users.router").router
+const server = express();
 const port = 3000;
 
+server.use("/users", usersRouter)
 
-const users = [
-  
-  {
-      id: "1",
-      name: "john", 
-      lastName: 'Doe',
-      age: Math.floor(Math.random() * 99),
-      email: "000001@email.com" 
+// original
+// server.get("/users/:id", (req, res) => {
+//   res.send(users.find((user) =>{
+//     return req.params.id === user.id;
+//   }))
+// });
 
-  },
-  {
-      id: "2",
-      name: "Nick", 
-      lastName: 'Theo',
-      age: Math.floor(Math.random() * 99),
-      email:"000002@email.com"   
-  },
-  
-]
+// defensive programming
 
 
 
-server.get("/users", (req, res) => {
-  res.send(users);
-});
-
-server.get("/users/:id", (req, res) => {
-  res.send(users.find((user) =>{
-    return req.params.id === user.id;
-  }))
-})
-
+// server.get("/users/:id", (req, res) => {
+//   res.send(users.find((user) =>{
+//     if (id = true) {
+//       return req.params.id === user.id;
+//     }else {
+//       res.send(UndefinedUser);
+//     }
+//   }))
+// });
 
 /*
 server.use(bodyParser.json())
@@ -51,8 +42,6 @@ server.post("/hi", (request, response) => {
   console.log({ lastname })
   response.send(`Hi ${name} ${lastname}`)
 })*/
-
-
 
 // TODOS:
 // put this all in a git repo
@@ -70,6 +59,4 @@ server.listen(3000, () => {
   console.log(users);
 })*/
 
-server.listen(3000, () => console.log("listening on port" + port))
-
-
+server.listen(3000, () => console.log("listening on port" + port));
