@@ -6,6 +6,8 @@ const server = express();
 const port = 3000;
 
 server.use("/users", usersRouter)
+server.use(express.json())
+server.use(express.urlencoded({ extended: false }))
 
 // original
 // server.get("/users/:id", (req, res) => {
@@ -29,7 +31,6 @@ server.use("/users", usersRouter)
 // });
 
 /*
-server.use(bodyParser.json())
 
 server.post("/hi", (request, response) => {
 //  if (!request.headers || request.headers["secret-key"] !== key) {
@@ -44,7 +45,7 @@ server.post("/hi", (request, response) => {
 })*/
 
 // TODOS:
-// put this all in a git repo
+// put this all in a git repo 
 // add prettier
 // multiple small commits (with each commit containing a group of changes)
 // GET /users (returns all users)
