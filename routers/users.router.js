@@ -47,7 +47,7 @@ let users = [
   },
 ];
 
-// In the future i want to make it 100% costom
+// In the future i want to make it 100% costom ↓↓↓↓↓
 const newUser = {
   id: "newId",
   name: "New",
@@ -92,6 +92,7 @@ router.put("/:id", (req, res) => {
   const user = users.find((user) => user.id === req.params.id);
   if (user) {
     res.send(
+      // i want to make this 100% constom in the future thats why this ↓↓↓↓↓
       user['name'] = "mpampis",
       user['lastName'] = "yoo",
       user['age'] = "321",
