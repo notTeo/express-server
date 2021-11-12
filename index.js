@@ -58,4 +58,4 @@ server.listen(3000, () => {
   console.log(users);
 })*/
 
-server.listen(3000, () => console.log("listening on port" + port));
+server.listen(3000, () => console.log("listening on port" + port + "Another day in the hustle"));
