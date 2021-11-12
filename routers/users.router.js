@@ -88,6 +88,17 @@ router.post("/post", (req, res) => {
   res.status(200).send("User Created")
 });
 
+router.put("/:id", (req, res) => {
+  const user = users.find((user) => user.id === req.params.id);
+  if (user) {
+    res.send(
+      user['name'] = "mpampis",
+      user['lastName'] = "yoo",
+      user['age'] = "321",
+      user['email'] = "mpampisyo@email.com" );
+  }
+})
+
 
 module.exports = {
   router,
