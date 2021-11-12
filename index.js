@@ -6,8 +6,6 @@ const server = express();
 const port = 3000;
 
 server.use("/users", usersRouter)
-server.use(express.json())
-server.use(express.urlencoded({ extended: false }))
 
 // original
 // server.get("/users/:id", (req, res) => {
