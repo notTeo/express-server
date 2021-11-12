@@ -43,14 +43,14 @@ server.post("/hi", (request, response) => {
 })*/
 
 // TODOS:
-// put this all in a git repo 
+// put this all in a git repo  CHECK!!
 // add prettier
-// multiple small commits (with each commit containing a group of changes)
-// GET /users (returns all users)
-// GET /user/:id (returns user with that id or returns undefined)
-// POST /user (reads the body, and adds a new entry in the users array)
-// PUT /user/:id (finds the user with that id, reads the body, and updates the user)
-// DELETE /user/:id (finds the user with that id, and removes it from the users array)
+// multiple small commits (with each commit containing a group of changes)CHECK!!
+// GET /users (returns all users)CHECK!!
+// GET /user/:id (returns user with that id or returns undefined)CHECK!!
+// POST /user (reads the body, and adds a new entry in the users array)CHECK!!
+// PUT /user/:id (finds the user with that id, reads the body, and updates the user)CHECK!!
+// DELETE /user/:id (finds the user with that id, and removes it from the users array) CHECK!!
 
 /*
 server.listen(3000, () => {
