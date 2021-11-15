@@ -70,12 +70,12 @@ router.get("/:id", (req, res) => {
   }
 });
 
-router.delete("/del/:id", (req, res) => {
+router.delete("/:id", (req, res) => {
   try {
     const user = users.find((user) => user.id === req.params.id);
     if (user) {
-      res.send(users = users.filter((user) => user.id != req.params.id));
-      res.status(200).send("User Deleted")
+      users = users.filter((user) => user.id != req.params.id);
+      res.status(200).send(getSuccessResponse("User deleted successfully"))
     }
   } catch (e) {
     res.send(getErrorResponse(e.message));
@@ -83,21 +83,18 @@ router.delete("/del/:id", (req, res) => {
 });
 
 router.post("/post", (req, res) => {
-  const user = newUser;
+  const user = req.body;
   users.push(user);
-  res.status(200).send("User Created")
+  res.status(200).send(getSuccessResponse("User Created"))
 });
 
 router.put("/:id", (req, res) => {
   const user = users.find((user) => user.id === req.params.id);
-  if (user) {
-    res.send(
-      // i want to make this 100% constom in the future thats why this ↓↓↓↓↓
-      user['name'] = "mpampis",
-      user['lastName'] = "yoo",
-      user['age'] = "321",
-      user['email'] = "mpampisyo@email.com" );
+  if (user){ 
+    res.send(req.body);
+    res.status(200).send(getSuccessResponse("User was edited"))
   }
+  else res.send(getErrorResponse("User not found"));
 })
 
 
