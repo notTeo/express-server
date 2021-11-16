@@ -11,50 +11,42 @@ router.use(express.urlencoded({ extended: false }));
 
 let users = [
   {
-    id: "1",
     name: "john",
     lastName: "Doe",
     age: Math.floor(Math.random() * 99),
     email: "000001@email.com",
+    id: "1"
   },
   {
-    id: "2",
     name: "Nick",
     lastName: "Theo",
     age: Math.floor(Math.random() * 99),
     email: "000002@email.com",
+    id: "2",
   },
   {
-    id: "3",
     name: "Mahmed",
     lastName: "Ali",
     age: Math.floor(Math.random() * 99),
     email: "000003@email.com",
+    id: "3",
   },
   {
-    id: "4",
     name: "Tony",
     lastName: "Stark",
     age: Math.floor(Math.random() * 99),
     email: "000004@email.com",
+    id: "4",
   },
   {
-    id: "5",
     name: "Mc'",
     lastName: "Gragor",
     age: Math.floor(Math.random() * 99),
     email: "000005@email.com",
+    id: "5",
   },
 ];
 
-// In the future i want to make it 100% costom ↓↓↓↓↓
-const newUser = {
-  id: "newId",
-  name: "New",
-  lastName: "user",
-  age: Math.floor(Math.random() * 99),
-  email: "000new@email.com"
-}
 
 router.get("/", (req, res) => {
   res.send(getSuccessResponse(users));
@@ -84,14 +76,26 @@ router.delete("/:id", (req, res) => {
 
 router.post("/post", (req, res) => {
   const user = req.body;
-  users.push(user);
-  res.status(200).send(getSuccessResponse("User Created"))
+  if(user){
+    if(!req.body.name || !req.body.lastName || !req.body.age || !req.body.email) {
+      res.send(getErrorResponse("Please enter your all data to continue..."));
+    }
+    else {
+      user["id"] = "8";
+      users.push(user);
+      res.status(200).send(getSuccessResponse("User Created"));
+    }
+    // if(user["lastName"] = "" )getErrorResponse("Please enter your last name to continue...");
+    // if(user["age"] = "" )getErrorResponse("Please enter your age to continue...");
+    // if(user["email"] = "" )getErrorResponse("Please enter your email to continue...");
+  }
 });
 
 router.put("/:id", (req, res) => {
   const user = users.find((user) => user.id === req.params.id);
+  const userbody = req.body;
   if (user){ 
-    res.send(req.body);
+    userbody['name'] = req.body.name
     res.status(200).send(getSuccessResponse("User was edited"))
   }
   else res.send(getErrorResponse("User not found"));
